@@ -6,10 +6,10 @@ body{
 	background-size: cover;
 }
 .login-box{
-	width: 280px;
+	width: 200px;
 	position: absolute;
 	top: 35%;
-	left: 20%;
+	left: 15%;
 	transform: translate(-50%, -50%);
 	color: white;
 }
@@ -21,9 +21,9 @@ body{
 	padding: 13px 0;
 }
 .register-box{
-	width: 280px;
+	width: 200px;
 	position: absolute;
-	top: 65%;
+	top: 56%;
 	left: 40%;
 	transform: translate(-50%, -50%);
 	color: white;
