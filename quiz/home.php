@@ -20,12 +20,12 @@
 <html>
 <head>
 	<title>Home</title>
-	<link rel="stylesheet" type="text/css" href="static/style_home.css">
+	<link rel="stylesheet" type="text/css" href="static/styles_home.css">
 </head>
 <body>
 	<?php
-		$_SESSION["rounds"] = 3;
-		$_SESSION["round"] = 3;
+		$_SESSION["rounds"] = 10;
+		$_SESSION["round"] = 10;
 		$_SESSION["history"] = "";
 	?>
 	<div class="content">

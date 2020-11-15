@@ -14,3 +14,70 @@ body{
 	cursor: pointer;
 	margin: 5px 5px 5px 5px;
 }
+.question{
+	width: 80%;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+}
+.question h1{
+	float: left;
+	text-align: center;
+	font-size: 40px;
+	border: 2px solid white;
+	border-radius: 12px;
+	padding: 5px;
+}
+.answer{
+	position: relative;
+	width: 100%;
+	background-color: #ff781f;
+	border: 2px solid white;
+	border-radius: 12px;
+	padding: 5px;
+	font-size: 50px;
+	cursor: pointer;
+	margin: 12px 0;
+	color: white;
+}
+.qa{
+	position: relative;
+	width: 70%;
+	left: 10%;
+	color: white;
+}
+.qa h3{
+	text-align: center;
+}
+.qa p{
+	position: relative;
+	padding: 5px;
+	text-align: center;
+	
+}
+.guess{
+	border: 2px solid red;
+	border-radius: 12px;
+}
+.solution{
+	border: 2px solid green;
+	border-radius: 12px;
+}
+
+
+.score{
+	position: absolute;
+	width: 180px;
+	top: 5%;
+	right: 5%;
+	font-size: 40px;
+	font-family: sans-serif;
+	color: white;
+	border: 5px solid white;
+	border-radius: 50%;
+	text-align: center;
+	padding: 5px;
+
+}

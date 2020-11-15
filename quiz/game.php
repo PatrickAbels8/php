@@ -25,7 +25,61 @@
 			$_SESSION["history"] = $_SESSION["history"] . "#3"; 
 		}
 		if($_SESSION["round"]==0){
-			echo $_SESSION["history"];
+			$_SESSION["history"] = trim($_SESSION["history"], "##");
+			$qa_list = explode("##", $_SESSION["history"]);
+			$right = 0;
+			$wrong = 0;
+			foreach($qa_list as $qa){
+				list($question_i, $answer1_i, $answer2_i, $answer3_i, $solution_i, $guess_i) = explode("#", $qa);
+				echo "<div class='qa'>";
+				echo "<h3>" . $question_i . "</h3>";
+				if($solution_i==1){
+					if($guess_i==1){
+						echo "<p class='solution guess'>" . $answer1_i . "</p>";
+					}else{
+						echo "<p class='solution'>" . $answer1_i . "</p>";
+					}
+				}else{
+					if($guess_i==1){
+						echo "<p class='guess'>" . $answer1_i . "</p>";
+					}else{
+						echo "<p>" . $answer1_i . "</p>";
+					}
+				}
+				if($solution_i==2){
+					if($guess_i==2){
+						echo "<p class='solution guess'>" . $answer2_i . "</p>";
+					}else{
+						echo "<p class='solution'>" . $answer2_i . "</p>";
+					}
+				}else{
+					if($guess_i==2){
+						echo "<p class='guess'>" . $answer2_i . "</p>";
+					}else{
+						echo "<p>" . $answer2_i . "</p>";
+					}
+				}
+				if($solution_i==3){
+					if($guess_i==3){
+						echo "<p class='solution guess'>" . $answer3_i . "</p>";
+					}else{
+						echo "<p class='solution'>" . $answer3_i . "</p>";
+					}
+				}else{
+					if($guess_i==3){
+						echo "<p class='guess'>" . $answer3_i . "</p>";
+					}else{
+						echo "<p>" . $answer3_i . "</p>";
+					}
+				}
+				if($solution_i==$guess_i){
+					$right += 1;
+				}else{
+					$wrong += 1;
+				}
+				echo "</div>";
+			}
+			echo "<div class='score'>" . sprintf("%.2f%%", $right/($right+$wrong) * 100) . "</div>";
 		}else{
 			$_SESSION["round"] = $_SESSION["round"]-1;
 
@@ -42,7 +96,7 @@
 			$answer2 = $row["answer2"];
 			$answer3 = $row["answer3"];
 			$solution = $row["solution"];
-			$_SESSION["history"] = $_SESSION["history"] . "#" . $question . "#" . $answer1 . "#" . $answer2 . "#" . $answer3 . "#" . $solution;
+			$_SESSION["history"] = $_SESSION["history"] . "##" . $question . "#" . $answer1 . "#" . $answer2 . "#" . $answer3 . "#" . $solution;
 	?> 
 	<div class="question">
 	<h1><?php echo $_SESSION["rounds"]-$_SESSION["round"]; ?>. Question: <?php echo $question; ?></h1>
@@ -56,10 +110,6 @@
 		<input type="hidden" name="answer3">
 		<button class="answer"><?php echo $answer3; ?></button></form>
 	</div>
-	<!-- <?php
-		// }
-	?> -->
-
 </body>
 </html>
 
